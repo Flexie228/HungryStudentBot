@@ -10,7 +10,8 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Mess
 def main():
     # Инициализация БД
     init_db()
-    
+    if TOKEN is None:
+        raise ValueError("Token is None. Check your .env file or Railway variables.")
     # Создание приложения
     application = Application.builder().token(TOKEN).build()
     
