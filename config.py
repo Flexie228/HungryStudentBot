@@ -4,10 +4,10 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
 
-# Только os.getenv, никаких os.environ[]
 TOKEN = os.getenv('BOT_TOKEN')
 
 if not TOKEN:
+    print("DEBUG: All env vars:", dict(os.environ))
     sys.exit("BOT_TOKEN not set")
 
 ADMIN_IDS_STR = os.getenv('ADMIN_IDS', '')
